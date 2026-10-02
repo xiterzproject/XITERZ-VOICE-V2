@@ -1,22 +1,14 @@
-# XITERZ VOICE V2 FIX
-Node.js + Express + WebSocket + WebRTC.
+# XITERZ VOICE V2 DEBUG
 
-Render:
-- Build Command: npm install
-- Start Command: npm start
-- Health Check: /healthz
+Build Command: `npm install`
+Start Command: `npm start`
+Health Check: `/healthz`
 
-Fixes:
-- ICE candidate queue to prevent candidates arriving before remote description.
-- Remote audio element uses autoplay + playsInline.
-- Mobile browser audio unlock button if autoplay is blocked.
-- /rtc-config endpoint for STUN and optional TURN environment variables.
-- Connection status/debug text.
-- Keeps WebSocket signaling at /ws.
+This build adds detailed Render logs for WebSocket, rooms, signaling, ICE, errors, and WebRTC connection states. It also sends WebSocket heartbeat pings every 25 seconds.
 
 Optional TURN environment variables:
-TURN_URL
-TURN_USERNAME
-TURN_CREDENTIAL
+- `TURN_URL`
+- `TURN_USERNAME`
+- `TURN_CREDENTIAL`
 
-STUN alone can work for many networks, but a TURN server is needed for networks where direct WebRTC connectivity is blocked.
+STUN alone may fail on some mobile/carrier/NAT networks. In that case a TURN server is needed.
